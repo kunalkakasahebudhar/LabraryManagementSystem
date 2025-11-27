@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
+import '../../../core/router/app_router.dart';
 
 class GreetingHeader extends StatelessWidget {
   final String userName;
@@ -26,12 +27,18 @@ class GreetingHeader extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: AppColors.primary.withOpacity(0.1),
-              child: const Icon(
-                Icons.notifications_outlined,
-                color: AppColors.primary,
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, AppRouter.notices);
+              },
+              borderRadius: BorderRadius.circular(20),
+              child: CircleAvatar(
+                radius: 20,
+                backgroundColor: AppColors.primary.withOpacity(0.1),
+                child: const Icon(
+                  Icons.notifications_outlined,
+                  color: AppColors.primary,
+                ),
               ),
             ),
           ],
