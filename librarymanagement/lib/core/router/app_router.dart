@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../features/splash/presentation/splash_screen.dart';
+import '../../features/onboarding/presentation/onboarding_screen.dart';
+
 import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/signup_screen.dart';
 import '../../features/auth/presentation/otp_verify_screen.dart';
@@ -26,6 +29,7 @@ import '../../features/reminders/presentation/reminders_screen.dart';
 
 class AppRouter {
   static const String splash = '/';
+  static const String onboarding = '/onboarding';
   static const String login = '/login';
   static const String signup = '/signup';
   static const String forgotPassword = '/forgot-password';
@@ -48,8 +52,10 @@ class AppRouter {
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      // case splash:
-      //   return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case splash:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case onboarding:
+        return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case signup:

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: AppStrings.appName,
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRouter.login, // Start with login for now
+      initialRoute: AppRouter.splash, // Start with splash
       onGenerateRoute: AppRouter.generateRoute,
     );
   }
