@@ -14,6 +14,7 @@ import '../widgets/quick_action_button.dart';
 import '../widgets/quick_info_card.dart';
 import '../widgets/status_card.dart';
 import '../../support/widgets/support_action_card.dart';
+import '../../common/social_media_bar.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -187,6 +188,8 @@ class _DashboardHomeContent extends StatelessWidget {
               date: '10 Aug 2023',
               onTap: () {},
             ),
+            const SizedBox(height: 20),
+            const SocialMediaBar(),
             const SizedBox(height: 20),
           ],
         ),
