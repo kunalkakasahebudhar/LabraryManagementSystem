@@ -13,6 +13,7 @@ import '../widgets/notice_preview_tile.dart';
 import '../widgets/quick_action_button.dart';
 import '../widgets/quick_info_card.dart';
 import '../widgets/status_card.dart';
+import '../../support/widgets/support_action_card.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -137,6 +138,32 @@ class _DashboardHomeContent extends StatelessWidget {
                   icon: Icons.calendar_month,
                   onTap: () =>
                       Navigator.pushNamed(context, AppRouter.attendance),
+                ),
+              ],
+            ),
+            const SizedBox(height: 32),
+            SectionHeader(title: 'Support & Requests'),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                SupportActionCard(
+                  title: 'New Request',
+                  subtitle: 'Seat/Timing/Plan/Book requests',
+                  icon: Icons.mail_outline,
+                  colorTheme: Colors.blue,
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRouter.newRequest);
+                  },
+                ),
+                const SizedBox(width: 16),
+                SupportActionCard(
+                  title: 'New Complaint',
+                  subtitle: 'Noise/WiFi/Locker/Fees issues',
+                  icon: Icons.warning_amber_rounded,
+                  colorTheme: Colors.orange,
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRouter.newComplaint);
+                  },
                 ),
               ],
             ),

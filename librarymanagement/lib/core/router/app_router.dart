@@ -22,6 +22,8 @@ import '../../features/notices_rules/presentation/notices_screen.dart';
 import '../../features/notices_rules/presentation/rules_screen.dart';
 
 import '../../features/support/presentation/support_screen.dart';
+import '../../features/support/presentation/screens/new_request_screen.dart';
+import '../../features/support/presentation/screens/new_complaint_screen.dart';
 import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/profile/presentation/edit_profile_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
@@ -46,6 +48,8 @@ class AppRouter {
   static const String notices = '/notices';
   static const String rules = '/rules';
   static const String support = '/support';
+  static const String newRequest = '/new-request';
+  static const String newComplaint = '/new-complaint';
   static const String editProfile = '/edit-profile';
   static const String settings = '/settings';
   static const String reminders = '/reminders';
@@ -86,6 +90,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const RulesScreen());
       case support:
         return MaterialPageRoute(builder: (_) => const SupportScreen());
+      case newRequest:
+        return MaterialPageRoute(builder: (_) => const NewRequestScreen());
+      case newComplaint:
+        return MaterialPageRoute(builder: (_) => const NewComplaintScreen());
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case editProfile:
