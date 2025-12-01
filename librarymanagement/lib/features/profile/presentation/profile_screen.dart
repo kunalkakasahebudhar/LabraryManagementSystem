@@ -3,12 +3,15 @@ import '../../../core/constants/app_colors.dart';
 import '../../../core/router/app_router.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../widgets/profile_header.dart';
+import '../logic/profile_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProfileController();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Profile'),
@@ -19,29 +22,39 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const ProfileHeader(),
-            const SizedBox(height: 32),
-            _buildInfoTile(Icons.email_outlined, 'Email', 'kunal@example.com'),
-            _buildInfoTile(Icons.school_outlined, 'College', 'MIT College'),
-            _buildInfoTile(Icons.book_outlined, 'Course', 'B.Tech CS'),
-            _buildInfoTile(
-              Icons.location_on_outlined,
-              'Address',
-              'Pune, Maharashtra',
+      body: AnimatedBuilder(
+        animation: controller,
+        builder: (context, child) {
+          final profile = controller.userProfile;
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                ProfileHeader(userProfile: profile),
+                const SizedBox(height: 32),
+                _buildInfoTile(Icons.email_outlined, 'Email', profile.email),
+                _buildInfoTile(
+                  Icons.school_outlined,
+                  'College',
+                  profile.college,
+                ),
+                _buildInfoTile(Icons.book_outlined, 'Course', profile.course),
+                _buildInfoTile(
+                  Icons.location_on_outlined,
+                  'Address',
+                  profile.address,
+                ),
+                const SizedBox(height: 32),
+                PrimaryButton(
+                  text: 'Edit Profile',
+                  onPressed: () =>
+                      Navigator.pushNamed(context, AppRouter.editProfile),
+                  isOutlined: true,
+                ),
+              ],
             ),
-            const SizedBox(height: 32),
-            PrimaryButton(
-              text: 'Edit Profile',
-              onPressed: () =>
-                  Navigator.pushNamed(context, AppRouter.editProfile),
-              isOutlined: true,
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

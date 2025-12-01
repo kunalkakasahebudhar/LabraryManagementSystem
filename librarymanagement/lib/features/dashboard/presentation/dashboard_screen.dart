@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:librarymanagement/features/notices_rules/presentation/notices_screen.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../../core/router/app_router.dart';
@@ -173,7 +174,10 @@ class _DashboardHomeContent extends StatelessWidget {
               title: 'Notices',
               actionText: 'View All',
               onActionTap: () {
-                // Navigate to notices
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NoticesScreen()),
+                );
               },
             ),
             const SizedBox(height: 16),

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
+import '../data/user_profile_model.dart';
 
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+  final UserProfile? userProfile;
+
+  const ProfileHeader({super.key, this.userProfile});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class ProfileHeader extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Text(
-          'Kunal Udhar',
+          userProfile?.name ?? 'joy hello',
           style: AppTextStyles.headlineMedium.copyWith(
             fontWeight: FontWeight.bold,
           ),
