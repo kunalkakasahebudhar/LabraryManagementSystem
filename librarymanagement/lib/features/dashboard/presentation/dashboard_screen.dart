@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:librarymanagement/features/notices_rules/presentation/notices_screen.dart';
+import '../../chat/presentation/chat_screen.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_strings.dart';
 import '../../../core/router/app_router.dart';
@@ -30,11 +31,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
   static final List<Widget> _pages = <Widget>[
     const _DashboardHomeContent(),
     const AttendanceScreen(),
+    const SizedBox(), // Placeholder for Chat
     const FeesOverviewScreen(),
     const ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ChatScreen()),
+      );
+      return;
+    }
     setState(() {
       _selectedIndex = index;
     });
@@ -56,6 +65,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_today),
             label: 'Attendance',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_rounded),
+            label: 'Chat',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'Fees'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
