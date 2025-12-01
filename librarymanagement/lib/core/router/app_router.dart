@@ -28,6 +28,7 @@ import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/profile/presentation/edit_profile_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/reminders/presentation/reminders_screen.dart';
+import '../../features/seat_management/presentation/seat_management_page.dart';
 
 class AppRouter {
   static const String splash = '/';
@@ -53,6 +54,7 @@ class AppRouter {
   static const String editProfile = '/edit-profile';
   static const String settings = '/settings';
   static const String reminders = '/reminders';
+  static const String seatManagement = '/seat-management';
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -102,6 +104,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case reminders:
         return MaterialPageRoute(builder: (_) => const RemindersScreen());
+      case seatManagement:
+        return MaterialPageRoute(
+          builder: (_) => const SeatManagementPage(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

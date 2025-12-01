@@ -122,8 +122,10 @@ class _DashboardHomeContent extends StatelessWidget {
             const SizedBox(height: 32),
             SectionHeader(title: 'Quick Actions'),
             const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              spacing: 12,
+              runSpacing: 16,
+              alignment: WrapAlignment.spaceBetween,
               children: [
                 QuickActionButton(
                   label: AppStrings.viewPlan,
@@ -140,6 +142,12 @@ class _DashboardHomeContent extends StatelessWidget {
                   icon: Icons.calendar_month,
                   onTap: () =>
                       Navigator.pushNamed(context, AppRouter.attendance),
+                ),
+                QuickActionButton(
+                  label: 'Seats',
+                  icon: Icons.event_seat,
+                  onTap: () =>
+                      Navigator.pushNamed(context, AppRouter.seatManagement),
                 ),
               ],
             ),
